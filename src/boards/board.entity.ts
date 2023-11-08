@@ -1,10 +1,10 @@
-import {BaseEntity, Column, Entity, PrimaryGeneratedColumn} from "typeorm";
-import {BoardStatus} from "./board.model";
+import {Column, Entity, PrimaryGeneratedColumn} from "typeorm";
+import {BoardStatus} from "./board-status.enum";
 
 @Entity()
-export class Board extends BaseEntity {
-    @PrimaryGeneratedColumn()
-    id: string;
+export class Board{
+    @PrimaryGeneratedColumn({'name':'id'})
+    id: number;
 
     @Column()
     title: string;

@@ -1,4 +1,5 @@
-import {Column, Entity, PrimaryGeneratedColumn, Unique} from "typeorm";
+import {Column, Entity, OneToMany, PrimaryGeneratedColumn, Unique} from "typeorm";
+import {Board} from "../boards/board.entity";
 
 @Entity('user')
 @Unique(['userName'])
@@ -11,4 +12,7 @@ export class User{
 
     @Column()
     password: string;
+
+    @OneToMany(() => Board, board => board.user, {eager: false})
+    boards: Board[];
 }
